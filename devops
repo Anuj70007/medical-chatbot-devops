@@ -1,0 +1,16 @@
+1) docker 
+
+steps:-
+Dockerize ML service
+Dockerize backend
+Dockerize frontend
+Create docker-compose
+	
+first cd into all of them then do these:-	
+a) dockerize-ml service :- 1) created requirements.txt 2) created dockerfile (uses requirement.txt to intstall what need to be installed) 3) docker run -p 8000:8000 medical-ml  (run server)
+
+b) dockerize-backend :- 1) created dockerfile 2) mvn clean package for jar file 3) build and run using docker build :- docker build -t medical-backend .  run :- docker run --add-host=host.docker.internal:host-gateway -p 8081:8081 medical-backend   
+
+remember changed mlurl from:- http://localhost:8000/predict to "http://host.docker.internal:8000/predict" from local host to docker as switching also why add --add-host in command to run as sometime in ubuntu it doesnt run automoatically windows/mac can run it automatically but in linux we need it explicitly to run  
+
+c) dockerize-frontend :- 1) created docker file and build and run build:- docker build -t medical-frontend . run:- docker run -p 3000:3000 medical-frontend
