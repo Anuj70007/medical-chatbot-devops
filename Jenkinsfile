@@ -3,12 +3,6 @@ pipeline {
 
     stages {
 
-        stage('Clone Repository') {
-            steps {
-                git 'https://github.com/Anuj70007/medical-chatbot-devops.git'
-            }
-        }
-
         stage('Build Docker Images') {
             steps {
                 sh 'docker compose build'
