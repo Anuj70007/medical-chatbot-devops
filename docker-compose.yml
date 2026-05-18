@@ -4,13 +4,13 @@ services:
 
   ml-service:
     build: ./ml-model
-    container_name: ml-service
+    image: greed707/medical-ml:latest
     ports:
       - "8000:8000"
 
   backend:
     build: ./backend
-    container_name: medical-backend
+    image: greed707/medical-backend:latest
     ports:
       - "8081:8081"
     depends_on:
@@ -18,7 +18,7 @@ services:
 
   frontend:
     build: ./frontend
-    container_name: medical-frontend
+    image: greed707/medical-frontend:latest
     ports:
       - "3000:3000"
     depends_on:

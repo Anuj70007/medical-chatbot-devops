@@ -40,6 +40,14 @@ pipeline {
             }
         }
 
+        stage('Push Docker Images') {
+            steps {
+                sh 'docker push greed707/medical-backend:latest'
+                sh 'docker push greed707/medical-frontend:latest'
+                sh 'docker push greed707/medical-ml:latest'
+            }
+        }
+
         stage('Start Containers') {
             steps {
                 sh 'docker compose up -d'
