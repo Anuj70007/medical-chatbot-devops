@@ -3,6 +3,23 @@ pipeline {
 
     stages {
 
+        stage('Backend Tests') {
+            steps {
+                dir('backend') {
+                    sh 'mvn test'
+                }
+            }
+        }
+
+        stage('Frontend Tests') {
+            steps {
+                dir('frontend') {
+                    sh 'npm install'
+                    sh 'CI=true npm test -- --watchAll=false'
+                }
+            }
+        }
+
         stage('Build Backend JAR') {
             steps {
                 dir('backend') {

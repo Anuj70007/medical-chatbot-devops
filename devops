@@ -25,3 +25,11 @@ command :- docker compose up --build
 
 username:- greed password:- jenkins 
 
+used gitscm with polling to trigger build automatically ...
+used ngrok to make public url as rightnow its localhost 8080 for jenkins for github to find jenkins to trigger build automatically need ngrok 
+
+command:- ngrok http 8080  (it will forward traffic from port 8080 to public url it gives ) see jenkins is backround service so if i made any changes in github it will automatically trigger jenkins but it need internet and ngrok so to work need to run jenkins and ngrok http 8080 then only it will trigger as ngrok isnt a background service which work automatically also this is free ngrok so after every restart url may change and then we need to change url in webhooks too (github--> medical chatbot --> settings--> webhooks->payload url (put from ngrok htttp 8080 )....
+
+if you want other to see your front end ngrok http 3000..
+
+
