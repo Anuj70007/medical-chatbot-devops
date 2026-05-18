@@ -14,3 +14,14 @@ b) dockerize-backend :- 1) created dockerfile 2) mvn clean package for jar file 
 remember changed mlurl from:- http://localhost:8000/predict to "http://host.docker.internal:8000/predict" from local host to docker as switching also why add --add-host in command to run as sometime in ubuntu it doesnt run automoatically windows/mac can run it automatically but in linux we need it explicitly to run  
 
 c) dockerize-frontend :- 1) created docker file and build and run build:- docker build -t medical-frontend . run:- docker run -p 3000:3000 medical-frontend
+
+docker compose to run all these simultaneously instead of running one by one ;- 
+
+a) create docker compose file inside that file all these 3,  build: ./backend (tells where the dockerfile is then it run that file for that service) depends_on (if depend of another service like backend on mlservice) ports to which port it need to run ;
+
+command :- docker compose up --build
+
+2) jenkins
+
+username:- greed password:- jenkins 
+
